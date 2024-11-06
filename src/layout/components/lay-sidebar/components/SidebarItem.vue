@@ -141,7 +141,7 @@ function resolvePath(routePath) {
             item?.pathList?.length === 1) ||
           (!onlyOneChild.meta.icon &&
             isCollapse &&
-            layout === 'mix' &&
+            /mix|double/.test(layout) &&
             item?.pathList?.length === 2)
         "
         truncated
