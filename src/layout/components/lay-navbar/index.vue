@@ -28,7 +28,15 @@ const {
   getDropdownItemClass
 } = useNav();
 
-const { t, locale, translationCh, translationEn } = useTranslationLang();
+const {
+  t,
+  locale,
+  translationCh,
+  translationTw,
+  translationEn,
+  translationJa,
+  translationKo
+} = useTranslationLang();
 </script>
 
 <template>
@@ -64,20 +72,52 @@ const { t, locale, translationCh, translationEn } = useTranslationLang();
             >
               <IconifyIconOffline
                 v-show="locale === 'zh'"
-                class="check-zh"
+                class="check-btn"
                 :icon="Check"
               />
               简体中文
+            </el-dropdown-item>
+            <el-dropdown-item
+              :style="getDropdownItemStyle(locale, 'tw')"
+              :class="['dark:!text-white', getDropdownItemClass(locale, 'tw')]"
+              @click="translationTw"
+            >
+              <IconifyIconOffline
+                v-show="locale === 'tw'"
+                class="check-btn"
+                :icon="Check"
+              />
+              繁體中文
             </el-dropdown-item>
             <el-dropdown-item
               :style="getDropdownItemStyle(locale, 'en')"
               :class="['dark:!text-white', getDropdownItemClass(locale, 'en')]"
               @click="translationEn"
             >
-              <span v-show="locale === 'en'" class="check-en">
+              <span v-show="locale === 'en'" class="check-btn">
                 <IconifyIconOffline :icon="Check" />
               </span>
               English
+            </el-dropdown-item>
+            <el-dropdown-item
+              :style="getDropdownItemStyle(locale, 'ja')"
+              :class="['dark:!text-white', getDropdownItemClass(locale, 'ja')]"
+              @click="translationJa"
+            >
+              <span v-show="locale === 'ja'" class="check-btn">
+                <IconifyIconOffline :icon="Check" />
+              </span>
+              日本語
+            </el-dropdown-item>
+            <el-dropdown-item
+              :style="getDropdownItemStyle(locale, 'ko')"
+              :class="['dark:!text-white', getDropdownItemClass(locale, 'ko')]"
+              @click="translationKo"
+            >
+              <span v-show="locale === 'ko'" class="check-btn">
+                <IconifyIconOffline :icon="Check" />
+              </span>
+              한국어
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -168,12 +208,7 @@ const { t, locale, translationCh, translationEn } = useTranslationLang();
     padding: 5px 40px;
   }
 
-  .check-zh {
-    position: absolute;
-    left: 20px;
-  }
-
-  .check-en {
+  .check-btn {
     position: absolute;
     left: 20px;
   }
