@@ -13,6 +13,7 @@ import AccountSettingsIcon from "@iconify-icons/ri/user-settings-line";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
 import Check from "@iconify-icons/ep/check";
+import LaySidebarOverallStyle from "../lay-sidebar/components/SidebarOverallStyle.vue";
 
 const {
   layout,
@@ -124,6 +125,8 @@ const {
       </el-dropdown>
       <!-- 全屏 -->
       <LaySidebarFullScreen id="full-screen" />
+      <!-- 整体风格 -->
+      <LaySidebarOverallStyle id="header-overall" />
       <!-- 消息通知 -->
       <LayNotice id="header-notice" />
       <!-- 退出登录 -->
