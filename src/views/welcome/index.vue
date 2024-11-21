@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { useNav } from "@/layout/hooks/useNav";
+
+const { title } = useNav();
 defineOptions({
   name: "Welcome"
 });
 </script>
 
 <template>
-  <h1>Pure-Admin-Thin（国际化版本）</h1>
+  <h1>{{ title }}</h1>
 </template>
