@@ -57,14 +57,22 @@ function getSubMenuData() {
   if (!parenetRoute?.children) return;
   subMenuData.value = parenetRoute?.children;
   childMenu.value = parenetRoute?.children;
-  useAppStoreHook().showDouble(childMenu.value.length > 1 ? true : false);
+  useAppStoreHook().showDouble(
+    childMenu.value.length > 1 || childMenu.value[0]?.meta?.showParent
+      ? true
+      : false
+  );
   curActive.value = menuData.value.findIndex(v => v.path === parenetRoute.path);
 }
 function handleChildMenu(menu, index) {
   childMenu.value = menu.children;
   router.push(menu.path);
   curActive.value = index;
-  useAppStoreHook().showDouble(childMenu.value.length > 1 ? true : false);
+  useAppStoreHook().showDouble(
+    childMenu.value.length > 1 || childMenu.value[0]?.meta?.showParent
+      ? true
+      : false
+  );
 }
 watch(
   () => [route.path, usePermissionStoreHook().wholeMenus],
