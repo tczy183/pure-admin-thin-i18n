@@ -1,5 +1,6 @@
 // 模拟后端动态生成路由
 import { defineFakeRoute } from "vite-plugin-fake-server/client";
+import { $t } from "@/plugins/i18n";
 
 /**
  * roles：页面级别权限，这里模拟二种 "admin"、"common"
@@ -9,7 +10,7 @@ import { defineFakeRoute } from "vite-plugin-fake-server/client";
 const permissionRouter = {
   path: "/permission",
   meta: {
-    title: "menus.purePermission",
+    title: $t("menus.purePermission"),
     icon: "ep:lollipop",
     rank: 10
   },
@@ -18,14 +19,14 @@ const permissionRouter = {
       path: "/permission/page/index",
       name: "PermissionPage",
       meta: {
-        title: "menus.purePermissionPage",
+        title: $t("menus.purePermissionPage"),
         roles: ["admin", "common"]
       }
     },
     {
       path: "/permission/button",
       meta: {
-        title: "menus.purePermissionButton",
+        title: $t("menus.purePermissionButton"),
         roles: ["admin", "common"]
       },
       children: [
@@ -34,7 +35,7 @@ const permissionRouter = {
           component: "permission/button/index",
           name: "PermissionButtonRouter",
           meta: {
-            title: "menus.purePermissionButtonRouter",
+            title: $t("menus.purePermissionButtonRouter"),
             auths: [
               "permission:btn:add",
               "permission:btn:edit",
@@ -47,7 +48,7 @@ const permissionRouter = {
           component: "permission/button/perms",
           name: "PermissionButtonLogin",
           meta: {
-            title: "menus.purePermissionButtonLogin"
+            title: $t("menus.purePermissionButtonLogin")
           }
         }
       ]
