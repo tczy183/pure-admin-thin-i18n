@@ -138,13 +138,13 @@ const {
         </span>
         <template #dropdown>
           <el-dropdown-menu class="logout">
-            <el-dropdown-item @click="toAccountSettings">
+            <!-- <el-dropdown-item @click="toAccountSettings">
               <IconifyIconOffline
                 :icon="AccountSettingsIcon"
                 style="margin: 5px"
               />
               {{ t("buttons.pureAccountSettings") }}
-            </el-dropdown-item>
+            </el-dropdown-item> -->
             <el-dropdown-item @click="logout">
               <IconifyIconOffline
                 :icon="LogoutCircleRLine"
@@ -155,13 +155,13 @@ const {
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <span
+      <!-- <span
         class="set-icon navbar-bg-hover"
         :title="t('buttons.pureOpenSystemSet')"
         @click="onPanel"
       >
         <IconifyIconOffline :icon="Setting" />
-      </span>
+      </span> -->
     </div>
   </div>
 </template>
